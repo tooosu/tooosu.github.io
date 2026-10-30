@@ -148,3 +148,5 @@ h2::after {
 .dp { padding: 18px 20px 16px 22px; border-left: 4px solid var(--red); background: rgba(255,240,200,.05); }
 .dp h3 { margin: 0 0 6px; font-size: 17px; color: #ffe3a3; }
 .dp p { margin: 0; font-size: 15px; color: #d9ccb4; }
+.darts-media { position: relative; }
+.darts-note { position: absolute; right: 8px; bottom: 6px; margin: 0; font-size: 11px; color: rgba(241,230,204,.8); text-shadow: 0 1px 3px rgba(0,0,0,.8); }
