@@ -29,7 +29,7 @@
   "@id": "https://tooosu.github.io/#bar",
   "name": "海賊酒場Tooosu",
   "alternateName": ["Tooosu", "トゥース"],
-  "description": "大阪府枚方市川原町にある、海賊がテーマのダーツ＆カラオケバー。2026年で10周年。2階デッキフロアでダーツ、1階キャビンフロアでカラオケ。全席喫煙OK。団体・貸切は最大45名。",
+  "description": "大阪府枚方市川原町にある、海賊がテーマのダーツ＆カラオケバー。2026年で10周年。2階デッキフロアでダーツ、1階キャビンフロアでカラオケ。全席喫煙OK。ダーツは1プレイ100円・投げ放題1,000円で朝5時まで。向かいのダーツバー「アクセスポイント」と合同のハウストーナメントを年2回ほど開催。団体・貸切は最大45名。",
   "url": "https://tooosu.github.io/",
   "telephone": "+81-50-1725-0117",
   "image": "https://tooosu.github.io/assets/img/deck.jpg",
@@ -53,7 +53,9 @@
   "smokingAllowed": true,
   "maximumAttendeeCapacity": 45,
   "amenityFeature": [
-    {"@type": "LocationFeatureSpecification", "name": "ダーツ（DARTSLIVE3）", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "ダーツ（DARTSLIVE3・1台）", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "ダーツ投げ放題（1,000円）", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "ダーツ用品の販売", "value": true},
     {"@type": "LocationFeatureSpecification", "name": "カラオケ", "value": true},
     {"@type": "LocationFeatureSpecification", "name": "全席喫煙可", "value": true},
     {"@type": "LocationFeatureSpecification", "name": "貸切（20名〜・1フロア）", "value": true}
@@ -69,6 +71,7 @@
   <div class="wrap">
     <a class="logo" href="./"><img class="logo-mark" src="assets/img/logo.png" alt="" width="36" height="36"><small>海賊酒場</small>Tooosu</a>
     <nav class="nav">
+      <a href="#darts" class="hide-sp">ダーツ</a>
       <a href="#floors" class="hide-sp">フロア</a>
       <a href="#price" class="hide-sp">料金</a>
       <a href="#party">団体・貸切</a>
@@ -114,36 +117,64 @@
   </div>
 </section>
 
-<section id="floors" class="dark">
+<section id="darts" class="dark">
   <div class="wrap">
-    <p class="sec-label">Floors</p>
-    <h2>2つのフロア</h2>
-    <p class="sec-intro">2階はダーツ、1階はカラオケ。どちらのフロアにもカウンターがあり、一人でも座りやすいお店です。</p>
-    <div class="floors">
-      <article class="floor">
-        <img src="assets/img/deck.jpg" alt="2階デッキフロア。木の床と舵、ロープ、古い地図、ランタンが飾られ、奥にダーツマシン（DARTSLIVE3）がある" loading="lazy" width="1448" height="1086">
-        <div class="body">
-          <p class="tag">2F ・ DARTS</p>
-          <h3>2階 デッキフロア（ダーツ）</h3>
-          <ul>
-            <li>ダーツマシン DARTSLIVE3</li>
-            <li>20席（うちカウンター10席）</li>
-            <li>舵・ロープ・古い地図・ランタンの海賊船の甲板</li>
-          </ul>
-        </div>
-      </article>
-      <article class="floor">
-        <img src="assets/img/cabin.jpg" alt="1階キャビンフロア。黒い壁にTooosuのロゴと手配書、樽、ソファ席とカウンター席" loading="lazy" width="1448" height="1086">
-        <div class="body">
-          <p class="tag">1F ・ KARAOKE</p>
-          <h3>1階 キャビンフロア（カラオケ）</h3>
-          <ul>
-            <li>カラオケ</li>
-            <li>25席（うちカウンター8席）</li>
-            <li>ソファ席があり、グループの宴会にも</li>
-          </ul>
-        </div>
-      </article>
+    <p class="sec-label">Darts</p>
+    <h2>投げるなら、<br>海賊船の甲板で。</h2>
+    <div class="darts-grid">
+      <figure class="darts-media">
+        <img src="assets/img/darts.jpg" alt="2階デッキフロアのダーツマシンDARTSLIVE3。木の壁とランタン、ロープに囲まれている" loading="lazy" width="652" height="652">
+      </figure>
+      <div>
+        <p class="darts-lead">2階デッキフロアのダーツマシンは<strong>DARTSLIVE3</strong>。舵とランタンに囲まれた甲板で、<strong>朝5時まで</strong>投げられます。</p>
+        <ul class="darts-stats">
+          <li><b>100<small>円</small></b>1プレイ</li>
+          <li><b>1,000<small>円</small></b>投げ放題</li>
+          <li><b>5:00</b>朝まで投げられる</li>
+          <li><b>OK</b>投げながら喫煙</li>
+        </ul>
+      </div>
+    </div>
+    <div class="darts-points">
+      <div class="dp">
+        <h3>向かいのダーツバーと合同トーナメント</h3>
+        <p>向かいのダーツバー「アクセスポイント」と合同で、ハウストーナメントを年2回ほど開いています。</p>
+      </div>
+      <div class="dp">
+        <h3>Tooosuのダーツチーム</h3>
+        <p>お店のダーツチームがあります。プロプレイヤーが来店することもあります。</p>
+      </div>
+      <div class="dp">
+        <h3>ダーツ用品を販売</h3>
+        <p>ダーツ用品は店内で買えます。</p>
+      </div>
+      <div class="dp">
+        <h3>毎月の「賞金首」</h3>
+        <p>その月のハイスコア1位には、黄金の手配書キーホルダーを贈ります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bounty" class="wood">
+  <div class="wrap bounty">
+    <div class="poster">
+      <span class="nail nail-l" aria-hidden="true"></span><span class="nail nail-r" aria-hidden="true"></span>
+      <p class="w">WANTED</p>
+      <p class="doa">DEAD OR ALIVE</p>
+      <img src="assets/img/bounty.jpg" alt="歴代の賞金首に贈られた黄金の手配書キーホルダー2つ。WANTEDの文字、海賊姿の写真、名前と日付入り" loading="lazy" width="1200" height="900">
+      <p class="reward"><small>REWARD</small>黄金の手配書キーホルダー</p>
+    </div>
+    <div class="bounty-text">
+      <p class="sec-label">Bounty</p>
+      <h2>今月の「賞金首」は誰だ。</h2>
+      <p>腕に自信のある海賊へ。Tooosuでは毎月、ダーツのハイスコアを店内に掲示しています。</p>
+      <ol>
+        <li>その月のハイスコア1位が<strong>「今月の賞金首」</strong>。</li>
+        <li>賞金首には、本人の海賊姿と名前が入った<strong>黄金の手配書キーホルダー</strong>をプレゼント。</li>
+        <li>翌月はまた新しい賞金首を決めます。</li>
+      </ol>
+      <p class="note">ダーツは1プレイ100円、投げ放題1,000円。</p>
     </div>
   </div>
 </section>
@@ -181,25 +212,36 @@
   </div>
 </section>
 
-<section id="bounty" class="wood">
-  <div class="wrap bounty">
-    <div class="poster">
-      <span class="nail nail-l" aria-hidden="true"></span><span class="nail nail-r" aria-hidden="true"></span>
-      <p class="w">WANTED</p>
-      <p class="doa">DEAD OR ALIVE</p>
-      <img src="assets/img/bounty.jpg" alt="歴代の賞金首に贈られた黄金の手配書キーホルダー2つ。WANTEDの文字、海賊姿の写真、名前と日付入り" loading="lazy" width="1200" height="900">
-      <p class="reward"><small>REWARD</small>黄金の手配書キーホルダー</p>
-    </div>
-    <div class="bounty-text">
-      <p class="sec-label">Bounty</p>
-      <h2>今月の「賞金首」は誰だ。</h2>
-      <p>腕に自信のある海賊へ。Tooosuでは毎月、ダーツのハイスコアを店内に掲示しています。</p>
-      <ol>
-        <li>その月のハイスコア1位が<strong>「今月の賞金首」</strong>。</li>
-        <li>賞金首には、本人の海賊姿と名前が入った<strong>黄金の手配書キーホルダー</strong>をプレゼント。</li>
-        <li>翌月はまた新しい賞金首を決めます。</li>
-      </ol>
-      <p class="note">ダーツは1プレイ100円、投げ放題1,000円。</p>
+<section id="floors" class="dark">
+  <div class="wrap">
+    <p class="sec-label">Floors</p>
+    <h2>2つのフロア</h2>
+    <p class="sec-intro">2階はダーツ、1階はカラオケ。どちらのフロアにもカウンターがあり、一人でも座りやすいお店です。</p>
+    <div class="floors">
+      <article class="floor">
+        <img src="assets/img/deck.jpg" alt="2階デッキフロア。木の床と舵、ロープ、古い地図、ランタンが飾られ、奥にダーツマシン（DARTSLIVE3）がある" loading="lazy" width="1448" height="1086">
+        <div class="body">
+          <p class="tag">2F ・ DARTS</p>
+          <h3>2階 デッキフロア（ダーツ）</h3>
+          <ul>
+            <li>ダーツマシン DARTSLIVE3</li>
+            <li>20席（うちカウンター10席）</li>
+            <li>舵・ロープ・古い地図・ランタンの海賊船の甲板</li>
+          </ul>
+        </div>
+      </article>
+      <article class="floor">
+        <img src="assets/img/cabin.jpg" alt="1階キャビンフロア。黒い壁にTooosuのロゴと手配書、樽、ソファ席とカウンター席" loading="lazy" width="1448" height="1086">
+        <div class="body">
+          <p class="tag">1F ・ KARAOKE</p>
+          <h3>1階 キャビンフロア（カラオケ）</h3>
+          <ul>
+            <li>カラオケ</li>
+            <li>25席（うちカウンター8席）</li>
+            <li>ソファ席があり、グループの宴会にも</li>
+          </ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
