@@ -150,3 +150,14 @@ h2::after {
 .dp p { margin: 0; font-size: 15px; color: #d9ccb4; }
 .darts-media { position: relative; }
 .darts-note { position: absolute; right: 8px; bottom: 6px; margin: 0; font-size: 11px; color: rgba(241,230,204,.8); text-shadow: 0 1px 3px rgba(0,0,0,.8); }
+
+/* 実際の写真 */
+.real-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+@media (max-width: 760px) { .real-photos { grid-template-columns: 1fr; } }
+.real-photos .photo-card { margin: 0; }
+.photo-cards { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 860px) { .photo-cards { grid-template-columns: 1fr; } }
+.map-col { display: grid; gap: 16px; align-content: start; }
+.exterior { margin: 0; border: 8px solid #5b3d1e; outline: 2px solid #c9a15a; outline-offset: -4px; box-shadow: 0 10px 24px rgba(0,0,0,.35); background: #5b3d1e; }
+.exterior img { display: block; width: 100%; }
+.exterior figcaption { padding: 6px 8px 2px; font-size: 13px; color: #f1e6cc; }
