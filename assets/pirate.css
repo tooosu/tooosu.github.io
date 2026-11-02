@@ -161,3 +161,17 @@ h2::after {
 .exterior { margin: 0; border: 8px solid #5b3d1e; outline: 2px solid #c9a15a; outline-offset: -4px; box-shadow: 0 10px 24px rgba(0,0,0,.35); background: #5b3d1e; }
 .exterior img { display: block; width: 100%; }
 .exterior figcaption { padding: 6px 8px 2px; font-size: 13px; color: #f1e6cc; }
+
+/* キャッチコピー */
+.hero .lead .catch { display: block; font-family: "Zen Antique", serif; font-size: 1.35em; color: #ffe3a3; margin-bottom: 8px; letter-spacing: .04em; }
+
+/* カラオケ（羊皮紙の上） */
+.karaoke-media { margin: 0; border: 8px solid #5b3d1e; outline: 2px solid #c9a15a; outline-offset: -4px; box-shadow: 0 10px 24px rgba(0,0,0,.35); }
+.karaoke-media img { display: block; width: 100%; height: auto; }
+.karaoke-lead { font-size: 17px; margin: 0 0 22px; }
+.karaoke-lead strong { color: var(--red); }
+.karaoke-stats li { color: var(--ink-soft); border-color: #b9965a; background: var(--rivets), var(--noise), linear-gradient(180deg, #fbf1d8, #f1e2bd); }
+.karaoke-stats b { color: var(--red); }
+.karaoke-points .dp { background: rgba(255,250,235,.55); }
+.karaoke-points .dp h3 { color: var(--ink); }
+.karaoke-points .dp p { color: var(--ink-soft); }
