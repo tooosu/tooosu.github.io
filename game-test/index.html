@@ -392,7 +392,9 @@ const TEAMS={
 };
 let RUN=null;   // アーケードの記録 {stage,kills,last,newBest}
 function arcadeStart(){RUN={stage:1,kills:0,last:null,newBest:false};nextShip()}
-function nextShip(){const ks=Object.keys(TEAMS).filter(k=>k!==RUN.last),k=ks[Math.floor(Math.random()*ks.length)];RUN.last=k;start(k)}
+// 3つの海賊団を1巡ずつ、順番をシャッフルして出す(同じ海賊団が続かず、出ない海賊団もできない)
+function nextShip(){if(!RUN.bag||!RUN.bag.length){let bag;do{bag=Object.keys(TEAMS).sort(()=>Math.random()-.5)}while(bag[0]===RUN.last);RUN.bag=bag}
+  const k=RUN.bag.shift();RUN.last=k;start(k)}
 function mkTower(side,x,y,main){return{tw:true,side,x,y,main,hp:main?2800:1600,max:main?2800:1600,range:main?215:195,dmg:main?90:62,rate:main?1:.8,cd:0,r:main?34:26,dead:false,flash:0}}
 function start(team){
   const dk=[...DECK].sort(()=>Math.random()-.5);
