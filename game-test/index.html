@@ -146,7 +146,7 @@ const CREW={
    info:['鉄球でまとめて攻撃。打たれ強い。空の敵は苦手','倒すたびテキーラで速くなる。4杯で寝る']},
  tattan:{name:'たったん',title:'愛されスター',img:2,cost:4,count:3,hp:300,dmg:30,rate:.5,range:140,spd:50,air:true,proj:'heart',r:15,
    info:['3人組でハートを連射。近くで倒れた敵が仲間に','775が大好き。ポウチャス！でハートの雨（回復）。たまに転ぶ']},
- nobisu:{name:'ノビスさま',title:'海賊団の用心棒',img:3,sc:1.45,cost:4,hp:1500,dmg:90,rate:1.0,range:22,spd:40,air:false,guard:130,r:18,
+ nobisu:{name:'ノビスさま',title:'海賊団の用心棒',img:3,sc:1.85,cost:4,hp:1500,dmg:90,rate:1.0,range:22,spd:40,air:false,guard:130,r:24,
    info:['近くの敵の攻撃を引きつけて、仲間を守る','倒れるとガチャのカプセル。中身はお楽しみ']},
  jiri:{name:'じり',title:'静かなる聞き上手',img:9,cost:3,hp:950,dmg:0,rate:1,range:50,spd:42,air:false,listen:true,r:15,
    info:['攻撃はしない。近くの敵が話に聞き入って手が止まる','平和主義。打たれ強い']},
@@ -499,6 +499,13 @@ function drawTower(t){const own=t.side==='p';
   const bw=t.main?72:56;g.fillStyle='#000';g.fillRect(t.x-bw/2,t.y-h/2-(own&&t.main?54:24),bw,9);
   g.fillStyle=own?'#4fa3ff':'#ff5a5a';g.fillRect(t.x-bw/2+1,t.y-h/2-(own&&t.main?53:23),(bw-2)*t.hp/t.max,7);
 }
+// 味方＝青、相手＝赤のふちどり(オンラインで同じキャラ同士でも見分けられるように)
+const RIMC=new Map();
+function rim(im,col){const key=col;let m=RIMC.get(im);if(!m){m={};RIMC.set(im,m)}if(m[key])return m[key];
+  const c=document.createElement('canvas');c.width=im.width+4;c.height=im.height+4;const x=c.getContext('2d');
+  for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)if(dx*dx+dy*dy<=5)x.drawImage(im,2+dx,2+dy);
+  x.globalCompositeOperation='source-in';x.fillStyle=col;x.fillRect(0,0,c.width,c.height);
+  x.globalCompositeOperation='source-over';x.drawImage(im,2,2);return m[key]=c}
 function drawUnit(u){const d=DEF[u.k],own=u.side==='p';
   if(d.struct){const sc=1.6,a=u.dep>0?1-u.dep/.7:1;g.globalAlpha=a;g.fillStyle='rgba(0,0,0,.35)';g.fillRect(u.x-24,u.y+24,52,8);
     g.drawImage(IMG[d.img].open,u.x-16*sc,u.y-18*sc,32*sc,36*sc);g.globalAlpha=1;
@@ -513,17 +520,17 @@ function drawUnit(u){const d=DEF[u.k],own=u.side==='p';
   if(u.stumble>0)g.rotate(.9*u.face);else if(u.sleep>0)g.rotate(.3*u.face);
   if(u.face<0)g.scale(-1,1);
   if(CREW[u.k]&&d.fly){g.fillStyle='#f4ecd8';g.fillRect(-22,14,44,10);g.fillRect(-16,10,32,4);g.fillStyle='#c9bda5';g.fillRect(-22,22,44,3)}
-  if(CREW[u.k]){const sc=d.sc||1.25,im=(u.sleep>0||(u.t%3.2)>3.05)?IMG[d.img].shut:IMG[d.img].open;g.drawImage(im,-16*sc,-18*sc,32*sc,36*sc)}
+  if(CREW[u.k]){const sc=d.sc||1.25,im=(u.sleep>0||(u.t%3.2)>3.05)?IMG[d.img].shut:IMG[d.img].open;g.drawImage(rim(im,own?'#4fb8ff':'#ff4d4d'),-18*sc,-20*sc,36*sc,40*sc)}
   else{const im=d.img,w=im.width*d.sc,h=im.height*d.sc;g.drawImage(im,-w/2,-h/2,w,h);
     if(u.flash>0){g.globalCompositeOperation='lighter';g.globalAlpha=.6;g.drawImage(im,-w/2,-h/2,w,h)}}
   g.restore();
   if(u.ally)g.drawImage(HEART,u.x-8,u.y-d.r-26+Math.sin(u.t*6)*2,17,17);
-  if(u.k==='kochi'&&own){ // 鉄球
+  if(u.k==='kochi'){ // 鉄球
     const a=u.sleep>0?0.6:u.t*6,bx=u.x+Math.cos(a)*20,by=u.y+12+Math.sin(a)*6;g.fillStyle='#000';g.beginPath();g.arc(bx,by,8,0,7);g.fill();g.fillStyle='#4a4f57';g.beginPath();g.arc(bx-1,by-1,7,0,7);g.fill()}
   if(u.listen>0)txt('…♪',u.x,u.y-d.r-22+Math.sin(T*6)*2,16,'#ffd0e8','center',false);
   if(u.sleep>0)for(let k=0;k<3;k++){const ph=(T*.8+k/3)%1;txt('Z',u.x+14+ph*20,u.y-26-ph*28,12+k*3,`rgba(255,255,255,${1-ph})`,'center',false)}
   if(u.hp<u.max){const bw=d.r*2+6;g.fillStyle='#000';g.fillRect(u.x-bw/2,u.y-d.r-16,bw,6);g.fillStyle=own?'#4fa3ff':'#ff5a5a';g.fillRect(u.x-bw/2+1,u.y-d.r-15,(bw-2)*u.hp/u.max,4)}
-  if(u.k==='kochi'&&own&&u.drinks>0&&u.sleep<=0){for(let k=0;k<u.drinks;k++){g.fillStyle='#000';g.fillRect(u.x-14+k*10,u.y-d.r-30,8,10);g.fillStyle='#f2c94c';g.fillRect(u.x-13+k*10,u.y-d.r-29,6,8)}}
+  if(u.k==='kochi'&&u.drinks>0&&u.sleep<=0){for(let k=0;k<u.drinks;k++){g.fillStyle='#000';g.fillRect(u.x-14+k*10,u.y-d.r-30,8,10);g.fillStyle='#f2c94c';g.fillRect(u.x-13+k*10,u.y-d.r-29,6,8)}}
   if(u.bub){g.font='14px "DotGothic16"';const w=g.measureText(u.bub.s).width+16,bx=clamp(u.x-w/2,6,W-w-6),by=u.y-d.r-62;
     g.fillStyle='#000';g.fillRect(bx+2,by+2,w,26);g.fillStyle='#f4ecd8';g.fillRect(bx,by,w,26);txt(u.bub.s,bx+w/2,by+18,14,'#1a1418','center',false)}
 }
